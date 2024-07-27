@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <title>LiveBooks.uz {% block title %}{% endblock title %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-lugx-gaming.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <!--  -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 589 lugx gaming
+
+https://templatemo.com/tm-589-lugx-gaming
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="" style="width: 158px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+              
+                      <li><a href="{% url 'home' %}"class="{% block index %}{% endblock index %}">Bosh sahifa</a></li>
+                      <li><a href="{% url 'shop' %}"class="{% block shop %}{% endblock shop %}">Kitoblar</a></li>
+                      <li><a href="{% url 'about' %}"class="{% block about %}{% endblock about %}">Biz haqimizda</a></li>
+                      <li><a href="{% url 'contact' %}"class="{% block contact %}{% endblock contact %}">Aloqa</a></li>
+                      {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'book-create' %}"><i class="fa-solid fa-plus"></i></a></li>
+                      <li><a href="{% url 'logout' %}" ><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                      {% else %}
+                      <li><a href="{% url 'login' %}">Kirish</a></li>
+                      <li><a href="{% url 'register' %}">Ro'yhatdan o'tish</a></li>
+                      {% endif %}
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menyu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner">
+    <div class="container">
+      <div class="row">
+        {% block banner %}
+        {% endblock banner %}
+      </div>
+    </div>
+  </div>
+  {% block content %}
+  {% endblock content %}
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2024 Farobiy IT academy Company. Barcha huquqlaringiz himoyalangan. &nbsp;&nbsp; <a rel="nofollow" href="https://LiveBooks.uz" target="_blank">Dasturchi: Orzimurod Yusupov</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'assets/js/counter.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+  </body>
+</html>
