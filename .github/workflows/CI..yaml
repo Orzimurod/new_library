@@ -3,11 +3,11 @@ name: NEW_LIBRARY Backend
 on:
   push:
     banches:
-      -main
+      - main
 
   pull_request:
     branches:
-    -main
+      - main
 
 jobs:
   build:
