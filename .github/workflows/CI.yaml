@@ -5,13 +5,13 @@ on:
     branches:
       - main
 
-    pull_request:
-      branches:
-        - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-lastet
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.12
@@ -19,13 +19,13 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run:
+        run: |
           python3 -m pip install --upgrade pip setuptools wheel
-          pip install -r requirements.text
+          pip install -r requirements.txt
       - name: Lint with flake8
-        run:
+        run: |
           pip install flake8
           flake8
       - name: Run tests with coverage
-        run:
-        python manage.py test
+        run: |
+          python manage.py test
