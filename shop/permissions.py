@@ -1,4 +1,3 @@
-from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import user_passes_test
 
 
@@ -14,18 +13,14 @@ from django.contrib.auth.decorators import user_passes_test
 #     )
 
 
-
 #     if view_func:
 #         return actual_decorator(view_func)
 #     return actual_decorator
 
 
-
-
-
-
 def admin(user):
     return user.is_authenticated and user.username == 'admin'
+
 
 def new_order_permission(view_func=None, login_url=None):
     actual_decorator = user_passes_test(
